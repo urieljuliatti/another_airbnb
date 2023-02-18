@@ -1,16 +1,46 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>AnotherAirbnb</title>
+    <title>Another Airbnb</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+
+    <%= javascript_include_tag "application", "data-turbo-track": "reload", defer: true %>
   </head>
 
   <body>
-    <%= yield %>
+  <nav class="py-2 bg-light border-bottom">
+    <div class="container d-flex flex-wrap">
+      <ul class="nav me-auto">
+        <li class="nav-item"><%= link_to 'Home', root_path, class: 'nav-link link-dark px-2' %></li>
+        <li class="nav-item"><%= link_to 'Quartos', rooms_path, class: 'nav-link link-dark px-2' %></li>
+      </ul>
+      <ul class="nav">
+      <% if user_signed_in? %>
+          <%= form_for(destroy_user_session_path, method: :delete, url: destroy_user_session_path) do |f| %> 
+            <%= f.submit :sair, :value => "Logout", placeholder: 'Logout', class: 'btn btn-danger' %>  
+          <% end %>
+          </form>
+      <% else %>
+        <li class="nav-item"><%= link_to 'Login', new_user_session_path, class:'nav-link link-dark px-2' %></li>
+        <li class="nav-item"><%= link_to 'Cadastrar-se', new_user_registration_path, class:'nav-link link-dark px-2' %></li>
+      <% end %>
+      </ul>
+    </div>
+  </nav>
+
+  <header class="py-3 mb-4 border-bottom">
+    <div class="container d-flex flex-wrap justify-content-center">
+      <a href="/" class="d-flex align-items-center mb-3 mb-lg-0 me-lg-auto text-dark text-decoration-none">
+        <span class="fs-4">Mini Airbnb</span>
+      </a>
+    </div>
+  </header>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
