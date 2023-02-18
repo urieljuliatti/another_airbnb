@@ -10,7 +10,7 @@ class BookingsController < ApplicationController
       @user.booking_id = @booking.id
       @user.save
     end
-    redirect_to rooms_path
+    redirect_to rooms_path, notice: 'Checkin feito com sucesso.'
   end
 
   def destroy
