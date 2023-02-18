@@ -1,6 +1,12 @@
+<% flash.each do |type, msg| %>
+    <hr />
+      <%= msg %>
+    <hr />
 <h1>Quartos</h1>
 <hr />
 <div class="container marketing">
+  
+  <% end %>
   <div class="row">
   <% @rooms.each do |room| %>
     <div class="col-lg-4">
@@ -13,13 +19,17 @@
         <p><a class="btn btn-secondary" href="#">Disponível</a></p>
          
         <%= form_for [room, Booking.new] do |f| %>
+          <%= f.hidden_field :user, value: current_user.id  %>
           <%= f.submit :checkin, :value => "Fazer Check In", placeholder: 'Check In', class: 'btn btn-primary' %>  
         <% end %>
         
       <% else %>
         <p><a class="btn btn-danger" href="#">Indisponível</a></p>
-        <%= form_for([room, room.booking], url: checkout_room_booking_path(room.id, room.booking.id)) do |f| %>
-          <%= f.submit :checkout, :value => "Checkout", placeholder: 'Check Out', class: 'btn btn-secondary' %>  
+        <%#= form_for([room, room.booking], url: checkout_room_booking_path(room.id, room.booking.id)) do |f| %>
+          <%#= f.submit :checkout, :value => "Checkout", placeholder: 'Check Out', class: 'btn btn-secondary' %>  
+        <%# end %>
+        <%= form_with model: [room, current_user.booking], method: :delete, local: true do |f| %>     
+          <%= f.submit :checkout, :value => "Fazer Checkout", placeholder: 'Checkout', class: 'btn btn-secondary' %>  
         <% end %>
       <% end %>
     </div>
