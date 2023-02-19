@@ -6,6 +6,7 @@
     <div class="d-flex gap-3 w-100 justify-content-between">
       <h6 class="mb-0 opacity-75 py-1"><b>Quarto:</b> <br /><%= history.room.title %></h6>
       <p class="mb-0 opacity-75"><b>Usuário:</b><br /> <%= history.user.email %></p>
+      <p class="mb-0 opacity-75"><b>Preço por minuto:</b><br /> R$<%= history.price %></p>
       <p class="mb-0 opacity-75"><b>Tempo gasto (minutos):</b><br /> <%= history.total_time_at_room %></p>
       <p class="mb-0 opacity-75"><b>Preço total:</b> <br />R$<%= history.total_price %></p>
       <p class="mb-0 opacity-75"><b>Data do Checkin:</b> <br /><%= history.formatted_checkin %></p>
