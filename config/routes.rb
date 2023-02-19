@@ -12,4 +12,8 @@ Rails.application.routes.draw do
     end
   end
 
+  namespace :admin do
+    resources :booking_histories
+  end
+
 end
