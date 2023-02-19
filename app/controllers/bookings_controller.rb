@@ -7,7 +7,7 @@ class BookingsController < ApplicationController
     else
       @booking = Booking.new(room: @room, user_id: @user.id, checkin: Time.zone.now)
       @booking.save
-      @user.booking_id = @booking.id
+      @user.booking = @booking
       @user.save
       redirect_to rooms_path, notice: 'Checkin feito com sucesso.'
     end
