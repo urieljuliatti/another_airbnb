@@ -3,7 +3,7 @@ Rails.application.routes.draw do
 
   root 'pages#home'
 
-  resources :rooms do
+  resources :rooms, only: [:index] do
     resources :bookings do
       member do
         post 'checkin', to: 'bookings#checkin'

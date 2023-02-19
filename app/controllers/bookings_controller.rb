@@ -15,6 +15,7 @@ class BookingsController < ApplicationController
 
   def destroy
     @booking = Booking.find(params[:id])
+    @booking.checkout = Time.now
     @booking.destroy
     redirect_to rooms_path, notice: 'Checkout feito com sucesso.'
   end

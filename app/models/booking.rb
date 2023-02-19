@@ -5,11 +5,11 @@ class Booking < ApplicationRecord
   before_destroy :set_history
 
   def order
-    minutes = time_at_room
+    minutes = total_time_at_room
     minutes.to_i * room.price
   end
 
-  def time_at_room
+  def total_time_at_room
     (checkout - checkin) / 1.minutes unless checkout.blank? || checkin.blank?
   end
 
