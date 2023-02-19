@@ -4,5 +4,6 @@ class RoomsController < ApplicationController
   
   def index
     @rooms = Room.all
+    @histories = BookingHistory.all
   end
 end

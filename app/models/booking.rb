@@ -16,6 +16,16 @@ class Booking < ApplicationRecord
   private
 
   def set_history
+    history = BookingHistory.new
+    history.room_id = self.room.id
+    history.user_id = self.user.id
+    history.price = self.room.price
+    history.total_price = self.order
+    history.total_time_at_room = self.total_time_at_room.to_i
+    history.charged = false
+    history.checkout = DateTime.now
+    history.checkin = self.created_at
+    history.save
     self.user = nil
   end
 end
