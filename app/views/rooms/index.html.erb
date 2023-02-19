@@ -24,8 +24,10 @@
         
       <% else %>
         <p><a class="btn btn-danger" href="#">Indisponível</a></p>
-        <%= form_with model: [room, current_user.booking], method: :delete, local: true do |f| %>     
-          <%= f.submit :checkout, :value => "Fazer Checkout", placeholder: 'Checkout', class: 'btn btn-secondary' %>  
+        <% if current_user.id == room.booking.user.id %>
+          <%= form_with model: [room, current_user.booking], method: :delete, local: true do |f| %>     
+            <%= f.submit :checkout, :value => "Fazer Checkout", placeholder: 'Checkout', class: 'btn btn-secondary' %>  
+          <% end %>
         <% end %>
       <% end %>
     </div>
