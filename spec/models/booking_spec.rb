@@ -8,7 +8,7 @@ RSpec.describe Booking, type: :model do
   end
   describe 'methods' do
     let(:booking) { create :booking}
-    
+
     before do
       allow(booking).to receive(:total_time_at_room).and_return(2.minutes)
       allow(booking).to receive(:order).and_return(60)
