@@ -15,7 +15,9 @@
         <% if history.charged %>
           <a href="#" class="btn btn-secondary">Cobrado</a>
         <% else %>
-          <a href="#" class="btn btn-danger">Cobrar</a>
+           <%= form_for history, url: admin_booking_history_path(history), method: :put do |f| %>
+            <%= f.submit :checkin, :value => "Cobrar", placeholder: 'Cobrar', class: 'btn btn-danger' %>  
+          <% end %>
         <% end %>
       </div>
     </div>
