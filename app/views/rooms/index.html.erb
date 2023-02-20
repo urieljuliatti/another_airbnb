@@ -1,17 +1,24 @@
 <% flash.each do |type, msg| %>
-      <div class="alert alert-primary alert-dismissible fade show" role="alert">
-        <%= msg %>
-        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
-      </div>
-    
+  <% if type.eql?('notice') %>
+    <div class="alert alert-primary alert-dismissible fade show" role="alert">
+      <%= msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% else %>
+    <div class="alert alert-danger alert-dismissible fade show" role="alert">
+      <%= msg %>
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+  <% end %>
+<% end %>
 <h1>Quartos</h1>
 <hr />
 <div class="container marketing">
   
-  <% end %>
+  
   <div class="row">
   <% @rooms.each do |room| %>
-    <div class="col-lg-4">
+    <div class="col-lg-4 py-4">
       <svg class="bd-placeholder-img rounded-circle" width="140" height="140" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: 140x140" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#777"></rect><text x="50%" y="50%" fill="#777" dy=".3em">140x140</text></svg>
 
       <h2><%= room.title %></h2>

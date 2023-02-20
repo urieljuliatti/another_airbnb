@@ -2,7 +2,7 @@ class BookingsController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
     if current_user.booking
-      redirect_to rooms_path, notice: 'Você não pode alugar mais de um quarto.'
+      redirect_to rooms_path, alert: 'Você não pode alugar mais de um quarto.'
     else
       @booking = Booking.new(booking_params)
       @booking.checkin = Time.now
