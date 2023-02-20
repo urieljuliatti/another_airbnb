@@ -1,7 +1,7 @@
 class Booking < ApplicationRecord
   belongs_to :room
   has_one :user
-
+  accepts_nested_attributes_for :user
   before_destroy :set_history
 
   def order
