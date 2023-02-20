@@ -10,7 +10,7 @@ RSpec.describe PagesController, type: :controller do
       expect(assigns(:rooms)).to eq(rooms)
     end
 
-    it 'renders the gome template' do
+    it 'renders the home template' do
       get :home
       expect(response).to render_template('home')
     end
