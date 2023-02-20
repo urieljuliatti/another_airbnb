@@ -6,7 +6,11 @@ class Booking < ApplicationRecord
 
   def order
     minutes = total_time_at_room
-    minutes.to_i * room.price
+    total = room.price
+    if minutes.to_i != 0
+      total = minutes.to_i * room.price
+    end
+    total
   end
 
   def total_time_at_room
