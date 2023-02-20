@@ -1,25 +1,21 @@
-# README
+# Setup
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Bootstrap
 
-Things you may want to cover:
+* Rodar: `./bin/rails css:install:bootstrap`
 
-* Ruby version
+* Remover a duplicação de `import * as bootstrap from bootstrap` em `app/javascript/application.js`
 
-* System dependencies
+* Rodar: `./bin/rails javascript:install:esbuild`
 
-* Configuration
+## Setup do banco
 
-* Database creation
+* Cria, faz a migration o seed: `rails db:setup`
 
-* Database initialization
+## Rodar o servidor
 
-* How to run the test suite
+* `rails s`
 
-* Services (job queues, cache servers, search engines, etc.)
+## Rodar os testes
 
-* Deployment instructions
-
-* ...
-# another_airbnb
+* `rspec`
