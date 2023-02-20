@@ -2,6 +2,8 @@
 
 ## Bootstrap
 
+* Rodar o `bundle install`
+
 * Rodar: `./bin/rails css:install:bootstrap`
 
 * Remover a duplicação de `import * as bootstrap from bootstrap` em `app/javascript/application.js`
