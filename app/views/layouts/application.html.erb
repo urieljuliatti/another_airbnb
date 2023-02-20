@@ -24,7 +24,8 @@
       </ul>
       <ul class="nav">
       <% if user_signed_in? %>
-          <%= form_for(destroy_user_session_path, method: :delete, url: destroy_user_session_path) do |f| %> 
+          <%= form_for(destroy_user_session_path, method: :delete, url: destroy_user_session_path) do |f| %>
+            <%= current_user.email %> 
             <%= f.submit :sair, :value => "Logout", placeholder: 'Logout', class: 'btn btn-danger' %>  
           <% end %>
           </form>
