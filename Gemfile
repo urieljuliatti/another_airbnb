@@ -55,6 +55,9 @@ group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'pry'
   gem 'pry-byebug'
+  gem 'factory_bot_rails', '~> 6.2'
+  gem 'faker', '~> 3.1'
+  gem 'rspec-rails', '~> 6.0'
 end
 
 group :development do
@@ -73,6 +76,9 @@ group :test do
   gem 'capybara'
   gem 'selenium-webdriver'
   gem 'webdrivers'
+  gem 'database_cleaner-active_record', '~> 2.0'
+  gem 'shoulda-matchers', '~> 5.3'
+  gem 'simplecov', '~> 0.22.0', require: false
 end
 
 gem "cssbundling-rails", "~> 1.1"
