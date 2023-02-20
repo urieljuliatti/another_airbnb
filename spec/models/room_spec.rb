@@ -1,7 +1,7 @@
 require 'rails_helper'
 
 RSpec.describe Room, type: :model do
-  subject(:room) { FactoryBot.build :room }
+  subject(:room) { build :room }
 
   describe 'validations' do
     it { is_expected.to validate_uniqueness_of(:title) }
