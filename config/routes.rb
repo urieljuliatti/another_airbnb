@@ -13,8 +13,12 @@ Rails.application.routes.draw do
   end
 
   namespace :admin do
-    resources :booking_histories
-    resources :rooms
+    resources :booking_histories do
+      member do
+        put 'charge', to: 'booking_histories#update'
+      end
+    end
+    resources :rooms, only: %i[new create]
   end
 
 end

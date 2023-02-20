@@ -5,8 +5,6 @@ class Admin::RoomsController < AdminController
     @rooms = Room.all
   end
 
-  def show; end
-
   def new
     @room = Room.new
   end
@@ -18,7 +16,7 @@ class Admin::RoomsController < AdminController
 
     respond_to do |format|
       if @room.save
-        format.html { redirect_to admin_rooms_url, notice: "Quarto criado." }
+        format.html { redirect_to rooms_url, notice: 'Quarto criado.' }
         format.json { render :show, status: :created, location: @room }
       else
         format.html { render :new, status: :unprocessable_entity }
