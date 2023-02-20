@@ -1,16 +1,17 @@
 class BookingsController < ApplicationController
   def create
     @room = Room.find(params[:room_id])
-    if current_user.booking
+    @user = User.find(params[:booking][:user_id])
+    if @user.booking
       redirect_to rooms_path, alert: 'Você não pode alugar mais de um quarto.'
     else
       @booking = Booking.new(booking_params)
       @booking.checkin = Time.now
       @booking.room = @room
       @booking.save
-      current_user.build_booking
-      current_user.booking = @booking
-      current_user.save
+      @user.build_booking
+      @user.booking = @booking
+      @user.save
       redirect_to rooms_path, notice: 'Checkin feito com sucesso.'
     end
   end
