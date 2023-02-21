@@ -4,7 +4,6 @@ require 'rails_helper'
 require 'support/devise'
 
 RSpec.describe Admin::BookingHistoriesController, type: :controller do
-
   login_admin
 
   describe 'GET index' do
@@ -28,7 +27,7 @@ RSpec.describe Admin::BookingHistoriesController, type: :controller do
       subject
       expect(subject).to redirect_to(admin_booking_histories_path)
       booking_history.reload
-      expect(booking_history.charged).to eq (true)
+      expect(booking_history.charged).to eq(true)
     end
     it 'notice as charged' do
       subject

@@ -7,7 +7,7 @@ RSpec.describe Booking, type: :model do
     it { is_expected.to belong_to(:room) }
   end
   describe 'methods' do
-    let(:booking) { create :booking}
+    let(:booking) { create :booking }
 
     before do
       allow(booking).to receive(:total_time_at_room).and_return(2.minutes)
@@ -19,7 +19,7 @@ RSpec.describe Booking, type: :model do
     end
 
     describe 'order' do
-      it { expect(booking.order).to eq (60) }
+      it { expect(booking.order).to eq(60) }
     end
   end
 end
