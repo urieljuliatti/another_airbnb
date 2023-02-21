@@ -30,7 +30,7 @@ RSpec.describe BookingsController, type: :controller do
   end
 
   describe 'POST checkin sem booking' do
-    
+
     let(:another_room) { create(:room) }
     let(:another_booking) { create(:booking) }
     before do
