@@ -10,23 +10,25 @@
       </ul>
     </div>
   <% end %>
+  <br />
+  <div class="field mb-3">
+    <%= form.label 'Título', style: "display: block" %>
+    <%= form.text_field :title, class: 'form-control' %>
+  </div><br />
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class="field">
+    <%= form.label 'Descrição', style: "display: block" %>
+    <%= form.text_area :body, class: 'form-control' %>
+  </div><br />
+
+  <div class="field">
+    <%= form.label 'Preço', style: "display: block" %>
+    <%= form.number_field :price, class: 'form-control' %>
+    <br />
   </div>
 
-  <div>
-    <%= form.label :body, style: "display: block" %>
-    <%= form.text_area :body %>
-  </div>
-
-  <div>
-    <%= form.label :price, style: "display: block" %>
-    <%= form.number_field :price %>
-  </div>
-
-  <div>
-    <%= form.submit %>
+  <div class="actions">
+    <br />
+    <%= form.submit 'Criar Quarto', class: 'btn btn-primary form-control' %>
   </div>
 <% end %>
