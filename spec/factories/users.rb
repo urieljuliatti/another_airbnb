@@ -5,7 +5,7 @@ FactoryBot.define do
     password_confirmation { password }
     admin { true }
     
-    factory :admin do
+    factory :customer do
       admin { false }
     end
   end

@@ -5,7 +5,7 @@ require 'support/devise'
 
 RSpec.describe RoomsController, type: :controller do
 
-  login_admin
+  login_user
 
   describe 'GET index' do
     it 'assigns @rooms' do
