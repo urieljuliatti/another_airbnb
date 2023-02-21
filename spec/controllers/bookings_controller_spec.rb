@@ -12,6 +12,9 @@ RSpec.describe BookingsController, type: :controller do
 
   before do
     booking.user = customer
+    customer.booking = booking
+    customer.save
+    booking.save
   end
 
   describe 'POST checkin' do
@@ -19,6 +22,10 @@ RSpec.describe BookingsController, type: :controller do
 
     it 'redirects_to rooms_path' do
       expect(subject).to redirect_to(rooms_url)
+    end
+    it 'cannot rent a room' do
+      subject
+      expect(flash[:alert]).to match(/Você não pode alugar mais de um quarto.*/)
     end
   end
 
