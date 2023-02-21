@@ -4,7 +4,6 @@ require 'rails_helper'
 require 'support/devise'
 
 RSpec.describe Admin::RoomsController, type: :controller do
-
   login_admin
 
   let(:room_attributes) { attributes_for :room }

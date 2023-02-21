@@ -4,7 +4,6 @@ require 'rails_helper'
 require 'support/devise'
 
 RSpec.describe BookingsController, type: :controller do
-
   login_user
 
   let(:room) { create(:room) }
@@ -30,7 +29,6 @@ RSpec.describe BookingsController, type: :controller do
   end
 
   describe 'POST checkin sem booking' do
-
     let(:another_room) { create(:room) }
     let(:another_booking) { create(:booking) }
     before do
@@ -58,6 +56,4 @@ RSpec.describe BookingsController, type: :controller do
       expect(subject).to redirect_to(rooms_url)
     end
   end
-
-  
 end
