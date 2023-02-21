@@ -13,9 +13,17 @@ RSpec.describe BookingsController, type: :controller do
   before do
     booking.user = customer
   end
-  
+
   describe 'POST checkin' do
     subject { post :create, params: { id: booking.id, room_id: room.id, booking: { user_id: customer.id } } }
+
+    it 'redirects_to rooms_path' do
+      expect(subject).to redirect_to(rooms_url)
+    end
+  end
+
+  describe 'POST checkin sem booking' do
+    subject { post :create, params: { room_id: room.id, booking: { user_id: customer.id } } }
 
     it 'redirects_to rooms_path' do
       expect(subject).to redirect_to(rooms_url)
@@ -29,4 +37,6 @@ RSpec.describe BookingsController, type: :controller do
       expect(subject).to redirect_to(rooms_url)
     end
   end
+
+  
 end
