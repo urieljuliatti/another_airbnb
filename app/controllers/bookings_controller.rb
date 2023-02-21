@@ -1,4 +1,5 @@
 class BookingsController < ApplicationController
+
   def create
     @room = Room.find(params[:room_id])
     @user = User.find(params[:booking][:user_id])
