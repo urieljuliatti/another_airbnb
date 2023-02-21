@@ -1,0 +1,21 @@
+<main class="form-signin" style='width: 100%; max-width: 330px;padding: 15px; margin: auto;'>
+
+<h2 class="h3 mb-3 fw-normal">Login</h2>
+
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <div class="field">
+    <%= f.label :email %><br />
+    <%= f.email_field :email, autofocus: true, autocomplete: "email",  class: 'form-control' %>
+  </div>
+  <br />
+  <div class="field">
+    <%= f.label :password %><br />
+    <%= f.password_field :password, autocomplete: "current-password",  class: 'form-control' %>
+  </div>
+  <br />
+  <div class="actions">
+    <%= f.submit "Login",  class: "w-100 btn btn-lg btn-primary form-control"%>
+  </div>
+<% end %>
+
+</main>
