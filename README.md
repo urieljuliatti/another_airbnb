@@ -23,3 +23,8 @@
 ## Rodar os testes
 
 * `rspec`
+
+## Usuários do sistema (de acordo com o seeds.rb)
+
+* email: `admin@me.com` | senha: `123456`
+* email: `user@me.com` | senha: `123456`
